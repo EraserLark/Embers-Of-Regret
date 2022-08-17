@@ -1,0 +1,4 @@
+Start new project, follow Coroutines tutorial.
+https://www.youtube.com/watch?v=Eq6rCCO2EU0
+
+See if that will work for your proj?

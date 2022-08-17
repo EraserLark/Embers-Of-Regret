@@ -1,0 +1,18 @@
+Procedure for make an obj that acts as an Item:
+- Add "Item" script to obj (or "ItemInfinite" if want renewable source)
+- In Inspector:
+-- Set the "itemNum" to correspond to the "keyItem" number of the obj you want this to interact with (see below)
+
+Procedure for adding mini items to the PlayerHand:
+- Create smaller version of item
+- Add "DropObject" script
+- Add rigidbody component
+-- Set 'isKinematic' to true
+-- Maybe just create a mini item prefab?
+- Place in child hierarchy IN ORDER OF THE "ITEMNUM" associated with it!!
+
+Procedure for making an object that will interact with an item:
+- Have script on obj inherit from "ItemInteractable"
+- In Inspector:
+-- Set "itemInteractable" bool to True
+-- Set the "keyItem" equal to the "itemNum" of the item you want to interact with this obj

@@ -1,0 +1,20 @@
+Scenes Directory:
+
+(I THINK the code for this works ok, but haven't tested enough to be sure. May still have bugs/issues)
+
+0 Start Menu
+1 First Playthrough
+2 No Keys (remove tutorial flap, only diff)
+3 Red Key (have lock already visible on door)
+4 Green Key
+5 Purple Key
+6 Red + Purple
+7 Red + Green
+8 Purple + Green
+9 Victory Card
+10 Game Over
+
+(MAKE SURE you have everything set up the way you want before doing this!)
+- Duplicate 'DebugRoom', rename new scene
+- Inside, set puzzles as already solved delete the keys for locks that have already been unlocked
+- For locks that have already been unlocked, check the 'Unlocked' box in the 'Magic Lock Interact' script component

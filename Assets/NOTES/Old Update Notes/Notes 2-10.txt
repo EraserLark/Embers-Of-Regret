@@ -1,0 +1,24 @@
+For Travel Colliders, will want to have their origins be the point where the Player will stop at (the "Spot", basically), and then move the collider themselves over to on top of the areas where the Player will be clicking to fly to that spot
+- Do this with seperate collider attached to object, move the colliders "Center" to be flush (can be approx.) with the area where the player will be clicking to travel!
+
+Can have colliders inside of a larger "Travel" collider that will still work, so (I think) you don't need to make the travel colliders inactive at a location once there, since you'll be inside of it and won't be able to click on the travel hb again until you're moving to another spot and are outside the travel hb again.
+- So don't have to do a seperate travel raycast? Since it will only hit the travel hb until inside it, and then you can only interact with the things inside that area, or travel to other spots.
+- I think this means there will only need to be 2 raycasts!
+	1) A raycast constantly shooting for the crosshair 		to change color based on how you can interact with the 		object you're hovering 	over	
+	2) A raycast that will shoot out when clicked and 	'interact' with whatever object it hits
+(- Technically could just use the first raycast and reference its info in the code for determining action, but this is simpler)
+
+(If true, this is way simpler than what I planned to do. Please work!)
+- It works!
+
+Set clipping plane of camera to '.01' (The 'Near' value box)
+
+Sometimes moving towards another spot from a wide angle looks a little weird, you move more to the left/right than the area you clicked (Since going to the origin of the HB which is further out from the HB area you click)
+- Maybe find a way to make the path more of a curve?? (If time!)
+
+Next: Make cursor different colors based on the type of object you click on (Tags most likely?)
+- Done!
+
+Increasing Player speed feels better in terms of responsiveness, getting to places quicker. But it also makes it harder to click on another spot if you're already in the process of flying to one.
+
+Figure out what to do when the FlySpot is outside the Travel HB, so you can't interact with things inside it...

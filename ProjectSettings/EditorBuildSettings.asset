@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menus/StartMenu.unity
+    guid: a16e2d2666eeac74496c844af3457f6f
+  - enabled: 1
+    path: Assets/Scenes/1FirstPlaythrough 1.unity
+    guid: 8e09f973b0d294847bb6cc6eedf696b2
+  - enabled: 1
+    path: Assets/Scenes/2.2NoKeys.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/3.2RedKey.unity
+    guid: fc80b43ca1dac3140a51b28cb1ef1f72
+  - enabled: 1
+    path: Assets/Scenes/4.2GreenKey.unity
+    guid: 66f750cfa96300d45b73e2dcbd24da9f
+  - enabled: 1
+    path: Assets/Scenes/5.2PurpleKey.unity
+    guid: 597ee9fcbad19b24994ffbf0e477863f
+  - enabled: 1
+    path: Assets/Scenes/6.2Red+Purple.unity
+    guid: b5fac78e5bdd55247a182bcfdde39e46
+  - enabled: 1
+    path: Assets/Scenes/7.2Red+Green.unity
+    guid: 056c4acc1a288ae47af7ca14a6c9653d
+  - enabled: 1
+    path: Assets/Scenes/8.2Green+Purple.unity
+    guid: 217e646c5c4764544909d381672787c8
+  - enabled: 1
+    path: Assets/Scenes/Menus/VictorySceen.unity
+    guid: 159a6f24a7fd32a44ab403bb050f0448
+  - enabled: 1
+    path: Assets/Scenes/Menus/GameOver.unity
+    guid: 93f02346988fea34597edef724e18054
+  - enabled: 1
+    path: Assets/Scenes/Menus/Intro.unity
+    guid: ed89440a5c277b24fa863cd582fc4288
+  m_configObjects: {}

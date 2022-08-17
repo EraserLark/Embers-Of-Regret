@@ -1,0 +1,4 @@
+The mouse is locked to like the DEAD CENTER of the screen, small collision radius, so will want to make crosshair appropriately sized
+- I think just the tip of the mouse registers
+- Avoid misclicks, especially for precise puzzles like the bookshelf
+- Maybe just a dot?

@@ -1,0 +1,9 @@
+ItemNum Directory:
+
+0 - Ingredient 1
+1 - Ingredient 2
+2 - Ingredient 3
+3 - Ingredient 4
+4 - Red Key
+5 - Green Key
+6 - Purple Key

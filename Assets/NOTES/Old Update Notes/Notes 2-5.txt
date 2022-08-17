@@ -1,0 +1,12 @@
+Will want to adjust the hitboxes of things, make them bigger if possible. The mouse can be very picky with what is/isn't over.
+- Might be a problem for things like bookshelf puzzle?
+- Will want to avoid making interactables TOO small...
+
+Added Raycast interaction script to the Player (Empty Object)
+
+NEXT TO DO:
+Figure out other half of interacting with objects: How to tell them what to do once you click on them.
+
+Have Player fly to preset position based on the object they click
+- Want to avoid custom animations for each diff object if possible, nothing fancy. Straight line.
+- For testing right now, can specific obj for that

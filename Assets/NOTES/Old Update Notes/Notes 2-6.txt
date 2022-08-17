@@ -1,0 +1,26 @@
+Is there a more efficeint way of naming/calling these values instead of hitInfo.transform.etc every time? I feel it might get very ineffeficient after a while...
+
+- Lerp (or Slerp maybe too) might be what I'm looking for in terms of moving the character
+- Or maybe SmoothDamp
+
+Running into problems right now with the SmoothDamp/Lerp/function needed to move Player to another spot: - Since occurs in a function that is only called when the mouse is clicked, will only move player for that one frame when the mouse is clicked.
+
+Also:
+	- MAKE SURE to do new code in the rough draft project 	  first
+	- Most of the commented code in 'MouseInteract' is 		  rough code meant to move the player, for future
+	  reference!
+
+Need to change the way you shoot out raycasts
+- Have another raycast identical that you use for actually interacting with objects, leave the first one solely for cursor color
+
+NEXT TO DO:
+Rework the way you have the raycasts working before you keep going on moving the player.
+- Maybe do "OnMouseOver" for the cursor instead of a raycast? That would save you a lot of trouble I think
+
+Or do 2 raycasts:
+- One long one for choosing a location to travel to (No distance max)
+- A short one for interacting with objects up close (can set distance max)
+- Then OnMouseOver for icon change
+What else does that leave?
+- Going into inventory
+Dragging items into environment (Just do the Minecraft method instead, click with crosshair to use item highlighted in inventory?)

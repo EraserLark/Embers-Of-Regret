@@ -1,0 +1,9 @@
+Coroutines look like the way to go for Player movement!
+
+Want to change the cursor system next
+
+Also need to figure out how to get the player to fly to a set point seperate from the object selected
+- Child object coordinates might be an issue?
+
+Adjust FOV to be wider as well? Objects far away are kind of hard to hit with mouse
+- Or is it more narrow that makes the BG closer?

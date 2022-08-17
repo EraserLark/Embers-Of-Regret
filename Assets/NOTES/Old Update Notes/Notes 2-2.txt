@@ -1,0 +1,19 @@
+Comments:
+
+Explain/Give context to GameObjects/References/things at the top
+Explain what Classes/Functions do that aren't inherent to Unity
+
+
+Game:
+
+Plane that is .01 wide by .01 long works well if the camera is 1 above it. Anything bigger really limits the Player's view I think.
+
+Point Light, Intensity of 1, Colored Orange parented to the Player
+
+Questions/To Do:
+- Animate Point Light on Player to flicker (Extra)
+
+Will Character Controller work in terms of collision as we need it too, or should I use a rigidbody for it instead????
+
+For the player flying from one location to the next, should we do that through an animation? If so, how proceed?
+- Will collision still work during an animation?
