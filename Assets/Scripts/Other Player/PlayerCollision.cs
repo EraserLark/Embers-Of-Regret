@@ -1,26 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public float jumpscareLength;
-
     public MouseInteract mouseInteract;
-    public MonsterFollow2 monsterFollow;
+
     public GameObject jumpscareZone;
     public Vector3 jumpscareSpot;
-
+    public float jumpscareLength;
     public GameObject playerDeath;
+
+    public MonsterFollow2 monsterFollow;
     public GameObject monster;
     public Animation nom;
 
     public GameObject noteOverlay;
-
     BookTrack bookTrack;
 
-    //public Animator anim;
     public AnimationControl animationControl;
 
     private void Awake()
@@ -30,12 +26,9 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //print("Collided with " + other.tag);     //DEBUG
-
+        //Player collides with Monster
         if (other.tag == "Monster")
         {
-            //NEED TO STOP MouseInteract ALTOGETHER, how to do that?
-
             jumpscareSpot = jumpscareZone.transform.position;
             jumpscareZone.GetComponent<AudioSource>().Play();
 
@@ -54,16 +47,11 @@ public class PlayerCollision : MonoBehaviour
 
             //Run player death function
             FindObjectOfType<PlayerDeath>().GameOverCountdown(jumpscareLength);
-            
-            //Will run script to kill player (Not very efficient, better way to run this?)
-                                                            //Script can be found attached to 'GameManager'
-            
         }
+        //Player collides with the Exit
         else if(other.tag == "Exit")
         {
-            //Cursor.lockState = CursorLockMode.Confined;
-            //print(Cursor.lockState + "Exit");      //DEBUG
-            bookTrack.ResetBooks();     //Reset bookshelf puzzle
+            bookTrack.ResetBooks();
             MonsterFollow2.candleLit = false;
             SceneManager.LoadScene(9);  //Load Victory screen
         }

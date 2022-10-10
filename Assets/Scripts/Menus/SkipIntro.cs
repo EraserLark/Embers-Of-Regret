@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SkipIntro : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class SkipIntro : MonoBehaviour
 
     public void Skip()
     {
-        fadeOut.SetActive(true);            //Starts fade out
-        skipButton.SetActive(false);        //Can't skip anymore
+        fadeOut.SetActive(true);
+        skipButton.SetActive(false);
     }
 }

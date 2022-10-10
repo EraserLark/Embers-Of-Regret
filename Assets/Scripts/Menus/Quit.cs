@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
@@ -9,7 +7,7 @@ public class Quit : MonoBehaviour
 
     public void PlayerQuit()
     {
-        //Do this to restart player's progress in game
+        //Restarts player's progress in game
         deathCount = GameObject.FindGameObjectWithTag("DeathTrack");
         Destroy(deathCount);
 

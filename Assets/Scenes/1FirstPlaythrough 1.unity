@@ -8370,8 +8370,6 @@ MonoBehaviour:
   player: {fileID: 0}
   itemInteractable: 0
   playerInventory: {fileID: 0}
-  flameRecharge: {fileID: 8300000, guid: e40a9bbbcb0e7904ba440ced777b72f6, type: 3}
-  playerSource: {fileID: 0}
   flame: {fileID: 0}
 --- !u!4 &161828235
 Transform:
@@ -10520,8 +10518,6 @@ MonoBehaviour:
   player: {fileID: 0}
   itemInteractable: 0
   playerInventory: {fileID: 0}
-  flameRecharge: {fileID: 8300000, guid: e40a9bbbcb0e7904ba440ced777b72f6, type: 3}
-  playerSource: {fileID: 0}
   flame: {fileID: 0}
 --- !u!4 &281073679
 Transform:
@@ -16174,7 +16170,7 @@ MonoBehaviour:
   totalSecsCountdown: 12
   clock: {fileID: 4940700626034594660}
   clockTick: {fileID: 0}
-  cauldonLight: {fileID: 752647627}
+  cauldronLight: {fileID: 752647627}
   smoke: {fileID: 2081540448}
   incorrect: {fileID: 8300000, guid: 4c3b83972ce88fd41b2c5ab2f76195f6, type: 3}
   purpleKey: {fileID: 2007223880}
@@ -28228,8 +28224,6 @@ MonoBehaviour:
   player: {fileID: 0}
   itemInteractable: 0
   playerInventory: {fileID: 0}
-  flameRecharge: {fileID: 8300000, guid: e40a9bbbcb0e7904ba440ced777b72f6, type: 3}
-  playerSource: {fileID: 0}
   flame: {fileID: 0}
 --- !u!4 &1044878505
 Transform:
@@ -49065,8 +49059,6 @@ MonoBehaviour:
   player: {fileID: 0}
   itemInteractable: 0
   playerInventory: {fileID: 0}
-  flameRecharge: {fileID: 8300000, guid: e40a9bbbcb0e7904ba440ced777b72f6, type: 3}
-  playerSource: {fileID: 0}
 --- !u!43 &1525734836
 Mesh:
   m_ObjectHideFlags: 0
@@ -51005,12 +50997,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec53e5b153426c4ba15ac17aa88ab55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpscareLength: 2.35
   mouseInteract: {fileID: 1649142507}
-  monsterFollow: {fileID: 196976543}
   jumpscareZone: {fileID: 131026402}
   jumpscareSpot: {x: 0, y: 0, z: 0}
+  jumpscareLength: 2.35
   playerDeath: {fileID: 0}
+  monsterFollow: {fileID: 196976543}
   monster: {fileID: 196976538}
   nom: {fileID: 1538763562}
   noteOverlay: {fileID: 1038419363}
@@ -55414,7 +55406,6 @@ GameObject:
   - component: {fileID: 1949059969}
   - component: {fileID: 1949059968}
   - component: {fileID: 1949059972}
-  - component: {fileID: 1949059974}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -55527,18 +55518,6 @@ MonoBehaviour:
   noteText: {fileID: 0}
   mGroanAudio: {fileID: 2006271654}
   monsterFollow: {fileID: 196976543}
---- !u!114 &1949059974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949059967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282b0f63e3b585746b503832ea7207d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1954244521
 GameObject:
   m_ObjectHideFlags: 0

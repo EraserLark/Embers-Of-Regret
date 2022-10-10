@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LockBase : MonoBehaviour
 {
-    //public PlayerDeath[] playerDeath;
-    //public GameObject[] playerDeathArray;
-    //public List<GameObject> playerDeathList;
     public PlayerDeath playerDeath;
     public InitialExit initialExit;
 
@@ -22,7 +17,6 @@ public class LockBase : MonoBehaviour
 
     private void Awake()
     {
-        //playerDeathArray = GameObject.FindGameObjectsWithTag("DeathTrack");   //Keeping JIC everything breaks with new system for some reason (:
         playerDeath = GameObject.FindGameObjectWithTag("DeathTrack").GetComponent<PlayerDeath>();
         monsterFollow2 = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterFollow2>();
     }
@@ -31,7 +25,7 @@ public class LockBase : MonoBehaviour
     {
         if(firstPlay)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);    //Lock will not have appeared yet in first playthrough
         }
     }
 
@@ -44,12 +38,6 @@ public class LockBase : MonoBehaviour
                 playerDeath.redIsUnlocked = true;
                 monsterFollow2.IncreaseSpeed();
                 break;
-            /*
-            foreach(GameObject playerDeath in playerDeathArray)
-            {
-                playerDeath.GetComponent<PlayerDeath>().redIsUnlocked = true;
-            }
-            */
 
             case "LockGreen":
                 greenUnlocked = true;
@@ -57,33 +45,17 @@ public class LockBase : MonoBehaviour
                 monsterFollow2.IncreaseSpeed();
                 break;
 
-                /*
-                foreach (GameObject playerDeath in playerDeathArray)
-                {
-                    playerDeath.GetComponent<PlayerDeath>().greenIsUnlocked = true;
-                }
-                break;
-                */
-
             case "LockPurple":
                 purpleUnlocked = true;
                 playerDeath.purpleIsUnlocked = true;
                 monsterFollow2.IncreaseSpeed();
                 break;
-
-                /*
-                foreach (GameObject playerDeath in playerDeathArray)
-                {
-                    playerDeath.GetComponent<PlayerDeath>().purpleIsUnlocked = true;
-                }
-                break;
-                */
         }
 
         if(redUnlocked && greenUnlocked && purpleUnlocked)
         {
             initialExit.AllUnlocked();  //Changes door tag so that hand appears when mouse over again
-            allUnlocked = true;         //Could probably set in Initial Exit script with this new funcrion above, but don't want to risk breaking too much rn
+            allUnlocked = true;
         }
     }
 }

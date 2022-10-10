@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InitialExit : ObjectInteractable
 {
@@ -15,8 +13,6 @@ public class InitialExit : ObjectInteractable
 
     public override void Selected()
     {
-        //base.Selected();
-
         gameObject.tag = "Lock";
 
         if(lockBase.firstPlay == true && firstClick == true)
@@ -26,12 +22,9 @@ public class InitialExit : ObjectInteractable
             magicLock.gameObject.GetComponent<Animator>().Play("LockAppear");
         }
 
-   
-        //Play magic lock sound
-
         if(lockBase.allUnlocked)
         {
-            AudioSource.PlayClipAtPoint(doorOpen, gameObject.transform.position, 50f);            //Play door opening sound
+            AudioSource.PlayClipAtPoint(doorOpen, gameObject.transform.position, 50f);
 
             magicLock.SetActive(false);
             gameObject.SetActive(false);

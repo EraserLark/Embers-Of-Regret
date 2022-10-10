@@ -1,22 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CauldronPuzzle : ItemInteractable  // ItemInteractable << ObjectInteractable << Monobehavior
 {
-    public int totalSecsCountdown = 12;     //Set in inspector, how many secs until cauldron restarts (12 to match with clock)
-    int solutionCount = 0;      //Used in switch statement, increases when right ingredient added
-    public GameObject clock;    //Reference to clock object that will be ticking down
+    public int totalSecsCountdown = 12;     //How many secs until cauldron restarts (12 to match with clock)
+    int solutionCount = 0;      //Used in switch statement for moving to next stage of puzzle
+    public GameObject clock;
     Transform clockHand;
     public AudioSource clockTick;
     Quaternion midnight;
-    //GameObject pendulum;    //May not end up implementing if not time
 
-    int countdown;  //What is counted down in the coroutine, set equal to 'totalSecsCountdown' though
-    IEnumerator currentCountDownCoroutine;  //Var that stores current coroutine, for use in StopCoroutine()
+    int countdown;
+    IEnumerator currentCountDownCoroutine;
 
-    Renderer brewRenderer;  //Var needed to change color of brew                 
-    public Light cauldonLight;  //color of light
+    Renderer brewRenderer;                
+    public Light cauldronLight;
     public GameObject smoke;
 
     public AudioClip incorrect;
@@ -28,31 +26,24 @@ public class CauldronPuzzle : ItemInteractable  // ItemInteractable << ObjectInt
     {
         base.Awake();
 
-        keyItem = 0;    //Starting out, keyItem will be 0. Will change as puzzle progresses
+        keyItem = 0;    //Increases as puzzle progresses, each num corresponds to each ingredient for puzzle
         countdown = totalSecsCountdown;
 
         brewRenderer = GetComponent<Renderer>();
-        //currentColor = Color.red;
-        //ChangeColor(Color.red);
+        brewSource = gameObject.GetComponent<AudioSource>();
+        smoke.GetComponent<ParticleSystem>().Stop();
 
         clockHand = clock.transform.GetChild(1);
         midnight = clockHand.rotation;
-        //pendulum = clock.transform.GetChild(2).gameObject;
-
         clockTick = clock.GetComponent<AudioSource>();
-        brewSource = gameObject.GetComponent<AudioSource>();
-
-        smoke.GetComponent<ParticleSystem>().Stop();
     }
 
     private void Update()
     {
-        //If timer runs out
         if (countdown <= 0)
         {
             ResetCount();
-            brewSource.PlayOneShot(incorrect);  //Play incorrect sound
-            //smoke.SetActive(false);             //Stop smoke particles
+            brewSource.PlayOneShot(incorrect);
             smoke.GetComponent<ParticleSystem>().Stop();
         }
     }
@@ -76,35 +67,26 @@ public class CauldronPuzzle : ItemInteractable  // ItemInteractable << ObjectInt
             switch (solutionCount)
             {
                 case 0:
-                    //print("Correct, now blue!");    //DEBUG
-
-                    //smoke.SetActive(true);      //Start smoke particle effects
                     smoke.GetComponent<ParticleSystem>().Play();
                     ChangeColor(Color.blue);
                     break;
 
                 case 1:
-                    //print("Correct, now green!");  //DEBUG
-
                     ChangeColor(Color.green);
                     break;
 
                 case 2:
-                    //print("Correct, now gold!");   //DEBUG
-
                     ChangeColor(Color.yellow);
                     break;
 
                 case 3:
-                    //print("Solved!!");              //DEBUG
-                    //Play corrct cauldron sound
                     StopCoroutine(currentCountDownCoroutine);
                     ChangeColor(Color.magenta);
 
                     clockHand.rotation = midnight;  //Sets clock back to 12 (0 sec)
-                    clock.GetComponent<AudioSource>().Stop();   //Stops Ticking Sound
+                    clock.GetComponent<AudioSource>().Stop();
 
-                    gameObject.GetComponent<CapsuleCollider>().enabled = false; //Make it so cannot be interacted with further
+                    gameObject.GetComponent<CapsuleCollider>().enabled = false; //Cannot be interacted with further
 
                     purpleKey.SetActive(true);
                     break;
@@ -112,22 +94,19 @@ public class CauldronPuzzle : ItemInteractable  // ItemInteractable << ObjectInt
 
             solutionCount++;
             keyItem++;
+            correctItem = false;
 
             brewSource.Play();
-
-            correctItem = false;
         }
     }
 
     IEnumerator CountDown()
     {
         countdown = totalSecsCountdown;
-        //clock.GetComponent<AudioSource>().Play();   //Play ticking sound, loops (Old way)
 
         while(countdown > 0)
         {
             countdown--;
-            //print(countdown);       //DEBUG
             clockTick.Play();
             clockHand.eulerAngles += new Vector3(0, 0, 30);
             yield return new WaitForSeconds(1.5f);
@@ -139,26 +118,21 @@ public class CauldronPuzzle : ItemInteractable  // ItemInteractable << ObjectInt
         StopCoroutine(currentCountDownCoroutine);
         keyItem = 0;
         solutionCount = 0;
-
-        ChangeColor(Color.red);     //Set brew back to red
-                                    //Play incorrct cauldron sound
         countdown = totalSecsCountdown;
 
-        clock.GetComponent<AudioSource>().Stop();   //Stops Ticking Sound
-
-        print("Restart!");      //DEBUG
+        ChangeColor(Color.red);
+        clock.GetComponent<AudioSource>().Stop();
     }
 
-    void ChangeColor(Color color)       //Add second input for 'Emission color' if want
+    void ChangeColor(Color color)
     {
         brewRenderer.material.SetColor("_Color", color);
-        brewRenderer.material.SetColor("_EmissionColor", color);        //Changes emission color
-        cauldonLight.color = color;
+        brewRenderer.material.SetColor("_EmissionColor", color);
+        cauldronLight.color = color;
     }
 
     public override void Selected()
     {
         base.Selected();
-        //Have like a cloud of smoke or something emerge, only aesthetic
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
@@ -18,13 +16,12 @@ public class PlayerDeath : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject.transform);
         lockBase = GameObject.FindGameObjectWithTag("LockBase").GetComponent<LockBase>();
-        bookTrack = GameObject.FindGameObjectWithTag("Bookshelf").GetComponent<BookTrack>();    //Ref to book tracking script for bookshelf puzzle, use for reseting
+        bookTrack = GameObject.FindGameObjectWithTag("Bookshelf").GetComponent<BookTrack>();    //Use for resetting bookshelf puzzle
     }
 
     public void GameOverCountdown(float jsLength)
     {
         Invoke("GameOver", jsLength);
-
 
         lockBase.redUnlocked = redIsUnlocked;
         lockBase.greenUnlocked = greenIsUnlocked;
@@ -34,19 +31,12 @@ public class PlayerDeath : MonoBehaviour
 
     public void GameOver()
     {
-        //print("You died!");         //DEBUG
-        //Drop Item
-        //Jumpscare plays, player 'dies'
-        //Menu pops up, Retry?
         MouseLook.freezeCam = true;
         Cursor.lockState = CursorLockMode.None;
-        bookTrack.ResetBooks();     //Reset bookshelf puzzle
+        bookTrack.ResetBooks();
         MonsterFollow2.candleLit = false;
 
-
-        //Respawn Player
-        SceneManager.LoadScene(10);      //Go to game over screen
-        //Restart();
+        SceneManager.LoadScene(10);      //Game over screen
     }
 
     public void Restart()
@@ -106,7 +96,5 @@ public class PlayerDeath : MonoBehaviour
         {
             SceneManager.LoadScene(2);  //No Keys
         }
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);   //Restarts current scene
-        print("Red" + redIsUnlocked + "Green" + greenIsUnlocked + "Purple" + purpleIsUnlocked);     //DEBUG
     }
 }

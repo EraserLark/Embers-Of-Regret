@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SafeHandle : ObjectInteractable
 {
@@ -13,27 +11,22 @@ public class SafeHandle : ObjectInteractable
 
     public override void Selected()
     {
-        //base.Selected();
-
         knobSource.Play();
 
         if(numOfCorrectDials >= 4)
         {
-            //Open Safe
-            //print("Safe unlocked!!");     //DEBUG
+            safeDoor.GetComponent<AudioSource>().Play();
 
-            safeDoor.GetComponent<AudioSource>().Play();    //Play safe door opening sound effect
-
-            safeDoor.transform.eulerAngles = new Vector3(90, 90, 0);    //Flips door open -- Animate opening instead??
+            safeDoor.transform.eulerAngles = new Vector3(90, 90, 0);    //Flips door open
             dials.SetActive(false);
         }
         else
         {
+            //Switches UI icon to 'Lock' briefly, to indicate the safe is not unlocked
             if (refreshCalled)
             {
                 CancelInvoke("Refresh");
             }
-            //Play Incorrect lock sound
             refreshCalled = true;
             gameObject.tag = "Lock";
             Invoke("Refresh", 3f);

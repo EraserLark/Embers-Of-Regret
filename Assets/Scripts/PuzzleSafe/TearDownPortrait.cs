@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TearDownPortrait : ObjectInteractable
 {
@@ -14,9 +12,7 @@ public class TearDownPortrait : ObjectInteractable
 
     public override void Selected()
     {
-        //base.Selected();
-
-        portraitSource.Play();        //play tear sound
+        portraitSource.Play();
         Destroy(portrait);
         Destroy(gameObject);
     }

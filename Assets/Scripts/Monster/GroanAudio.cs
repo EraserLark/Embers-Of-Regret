@@ -1,46 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroanAudio : MonoBehaviour
 {
     AudioSource audioSource;
-    public AudioClip[] audioClips = new AudioClip[0];   //Currently set to 16 in Inspector (as of rn probably won't change, unless adding more monster sfx)
+    public AudioClip[] audioClips = new AudioClip[0];   //Set to 16 in Inspector
 
-    int randomClip;             //Holds random number from length of array, tells audio source which clip to play
-    int randomDelayNum = 5;     //Set for initial Invoke rn, will most likely change later
+    int randomClipNum;          //Holds random number between 0 and 15
+    int randomDelayNum = 5;
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
         NewRandomNumbers();
-        Invoke("Roar", randomDelayNum);     //Probably will want to change this, start the Roar cycle once the player finished lantern tutorial?
+        Invoke("Roar", randomDelayNum);
     }
 
     void Roar()
     {
         NewRandomNumbers();
-        audioSource.PlayOneShot(audioClips[randomClip]);
+        audioSource.PlayOneShot(audioClips[randomClipNum]);
         Invoke("Roar", randomDelayNum);
     }
 
     void NewRandomNumbers()
     {
-        randomClip = Random.Range(0, audioClips.Length);
-        randomDelayNum = Random.Range((int) audioClips[randomClip].length, 15); //Might break, unsure if '(int)' will always work right w/ this?
-                                                                                //Will delay the next 'Roar' until at minimum, the general runtime of the prev clip has finished
+        randomClipNum = Random.Range(0, audioClips.Length);
+        //Delays the next 'Roar' at least until the runtime of the prev clip has finished
+        randomDelayNum = Random.Range((int) audioClips[randomClipNum].length, 15);
     }
 
-    //For use when reading notes, pausing monster
     public void PauseRoar()
     {
-        //CancelInvoke("Roar");
         audioSource.volume = 0f;
     }
 
-    public void  UnPauseRoar()
+    public void UnPauseRoar()
     {
         audioSource.volume = 1f;
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DrawerInteract : ObjectInteractable
 {
@@ -8,8 +6,6 @@ public class DrawerInteract : ObjectInteractable
 
     public override void Awake()
     {
-        //base.Awake();
-
         drawerSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -25,7 +21,6 @@ public class DrawerInteract : ObjectInteractable
         else if(!state)
         {
             gameObject.transform.Translate(Vector3.left * 10, Space.Self);
-            //If time, add seperate drawer closing sound
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LoadFinalBook : MonoBehaviour
 {
@@ -9,12 +7,10 @@ public class LoadFinalBook : MonoBehaviour
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
-        //print(Cursor.lockState + "Start");        //DEBUG
     }
 
     public void loadOutroP2()
     {
-        //print("Clicked!");
         outroP2.SetActive(true);
     }
 }

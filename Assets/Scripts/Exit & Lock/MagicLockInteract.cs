@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MagicLockInteract : ItemInteractable   // ItemInteractable << ObjectInteractable << Monobehavior
 {
@@ -17,7 +15,6 @@ public class MagicLockInteract : ItemInteractable   // ItemInteractable << Objec
         base.Awake();
 
         lockBase = gameObject.GetComponentInParent<LockBase>();
-
         doorSource = door.GetComponent<AudioSource>();
     }
 
@@ -37,10 +34,7 @@ public class MagicLockInteract : ItemInteractable   // ItemInteractable << Objec
         if(correctItem)
         {
             unlocked = true;
-            print(gameObject.name);
             lockBase.Unlocked(gameObject.name);
-            //Play correct lock sound
-            //Lock disappears (fades out/sparkles?)
             gameObject.SetActive(false);
             doorSource.Play();
         }

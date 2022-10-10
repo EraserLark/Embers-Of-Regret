@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BookTrack : MonoBehaviour
@@ -14,13 +13,11 @@ public class BookTrack : MonoBehaviour
     public void AddBook(GameObject book)
     {
         listOfBooks.Add(book);
-        print(book.name + " has been added to list");       //DEBUG
     }
 
     public void RemoveBook(GameObject book)
     {
         listOfBooks.Remove(book);
-        print(book.name + " has been removed from list");       //DEBUG
     }
 
     public void ResetBooks()
@@ -42,18 +39,4 @@ public class BookTrack : MonoBehaviour
         topCompartmentOpen.SetActive(true);
         topCompartment.SetActive(false);
     }
-
-    /*
-    public void DeactivateTemp()
-    {
-        deactivateColl.SetActive(true);
-        Invoke("DeactivateDeactivate", 5f);
-    }
-
-    public void DeactivateDeactivate()
-    {
-        deactivateColl.SetActive(false);
-    }
-    */
-
 }

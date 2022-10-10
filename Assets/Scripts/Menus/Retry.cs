@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class Retry : MonoBehaviour
 {
@@ -15,6 +12,5 @@ public class Retry : MonoBehaviour
     public void PlayGame()
     {
         deathTrack.GetComponent<PlayerDeath>().Restart();
-        //SceneManager.LoadScene(1);
     }
 }
